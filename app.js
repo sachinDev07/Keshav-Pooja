@@ -243,26 +243,3 @@ const audio = (() => {
         pause: () => singleton().pause(),
     };
 })();
-
-
-const handleInput = (event) => {
-    event.preventDefault();
-
-    const formNama = document.getElementById('form-nama');
-    const formPesan = document.getElementById('form-pesan');
-
-    if(formNama.value === "" | formPesan.value == "") {
-        const EmptyFiled = document.getElementById('empty');
-        EmptyFiled.classList.add("show");
-        setTimeout(() => {
-            EmptyFiled.classList.remove("show");
-        }, 3000);
-    }
-    else {
-        const ThanksField = document.getElementById('thanks');
-        ThanksField.classList.add("show");
-        setTimeout(() => {
-            ThanksField.classList.remove("show");
-        }, 3000);
-    }
-}

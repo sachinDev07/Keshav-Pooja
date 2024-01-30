@@ -34,8 +34,28 @@ body::-webkit-scrollbar {
 .img-crop>img {
     display: inline;
     margin: 0 auto;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     width: 100%;
+    object-position: top;
+}
+
+.carouselItem{
+    max-height: 700px;
+    justify-items: center;
+}
+.carouselItem>img {
+    max-width: 100%;
+    min-height: 300px;
+    max-height: 400px;
+    object-position: top;
+    object-fit: cover;
+}
+
+@media screen and (min-width:800px) {
+    .carouselItem>img {
+        max-height: 600px;
+    }
 }
 
 .btn-music {

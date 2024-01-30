@@ -127,10 +127,8 @@
         <section class="dark-section" id="Bride">
 
             <div class="text-center">
-                <img src="./assets/images/ganesha.png" style="height: 100px; margin-bottom: -10px;">
-                <h1 class="font-arabic py-4 px-2" style="font-size: 1.1rem">इहेमाविन्द्र सं नुद चक्रवाकेव दम्पती ।
-
-                    प्रजयौनौ स्वस्तकौ विस्वमायुर्व्यऽशनुताम् ॥</h1>
+                <img src="./assets/images/ganesha.png" style="height: 100px; margin-bottom: -20px;">
+                <h1 class="font-arabic py-4 px-2" style="font-size: 1.1rem">विघ्न हरण मंगल करन श्री गणपति महाराज। प्रथम निमंत्रण आपको पूरण करियो काज।।</h1>
 
                 <!-- Love animation -->
                 <div class="position-relative">
@@ -158,11 +156,11 @@
 
                     <div data-aos="fade-right" data-aos-duration="2000">
                         <div class="img-crop border border-3 border-light shadow my-4 mx-auto">
-                            <img src="./assets/images/Groom1.jpg" alt="cowo" onclick="util.modal(this)">
+                            <img src="./assets/images/Bride.jpg" alt="cewe" onclick="util.modal(this)">
                         </div>
-                        <h1 class="font-esthetic" style="font-size: 3rem;">Keshav Rana</h1>
-                        <p class="mt-3 mb-0" style="font-size: 1.25rem;">Son Of</p>
-                        <p class="mb-0">Sh.Harkesh Singh Rana</p>
+                        <h1 class="font-esthetic" style="font-size: 3rem;">Pooja Panwar</h1>
+                        <p class="mt-3 mb-0" style="font-size: 1.25rem;">Daughter Of</p>
+                        <p class="mb-0">Smt. Veena Devi & Sh. Sarop Panwar</p>
                     </div>
 
                     <!-- Love animation -->
@@ -187,11 +185,11 @@
 
                     <div data-aos="fade-left" data-aos-duration="2000">
                         <div class="img-crop border border-3 border-light shadow my-4 mx-auto">
-                            <img src="./assets/images/Bride1.jpg" alt="cewe" onclick="util.modal(this)">
+                            <img src="./assets/images/Groom1.jpg" alt="cowo" onclick="util.modal(this)">
                         </div>
-                        <h1 class="font-esthetic" style="font-size: 3rem;">Pooja Panwar</h1>
-                        <p class="mt-3 mb-0" style="font-size: 1.25rem;">Daughter Of</p>
-                        <p class="mb-0">Sh. Sarop Singh</p>
+                        <h1 class="font-esthetic" style="font-size: 3rem;">Keshav Rana</h1>
+                        <p class="mt-3 mb-0" style="font-size: 1.25rem;">Son Of</p>
+                        <p class="mb-0">Smt. Rama Devi & Sh. Harkesh Singh Rana</p>
                     </div>
                 </div>
 
@@ -255,7 +253,7 @@
                     <div class="border rounded-pill shadow py-2 px-4 mx-2 mb-4 eventTime">
 
                         <!-- Ganti waktunya pada data-waktu (sesuai format tersebut) -->
-                        <div class="row justify-content-center" data-waktu="2024-03-07 00:00:00" id="tampilan-waktu">
+                        <div class="row justify-content-center" data-waktu="2024-03-07 12:00:00" id="tampilan-waktu">
                             <div class="col-3 p-1">
                                 <h2 class="d-inline m-0 p-0" id="days">0</h2><small class="ms-1 me-0 my-0 p-0 d-inline">Days</small>
                             </div>
@@ -298,6 +296,12 @@
                             <h1 class="font-esthetic" style="font-size: 2rem;">07 March 2024</h1>
                             <p>Brahambhoj..............1:00 PM</p>
                             <p>Reception of barat..............7:00 PM</p>
+                        </div>
+
+                        <div class="py-2" data-aos="fade-right" data-aos-duration="1500">
+                            <!-- <h1 class="font-esthetic" style="font-size: 2rem;">Reception Of Barat</h1> -->
+                            <h1 class="font-esthetic" style="font-size: 2rem;">08 March 2024</h1>
+                            <p>Departure of barat..............8:00 PM</p>
                         </div>
                     </div>
 
@@ -403,7 +407,9 @@
         <section class="m-0 p-0" id="Saying">
             <div class="container">
 
-                <div class="card-body border rounded-4 shadow p-3">
+                <form class="card-body border rounded-4 shadow p-3" onsubmit="handleInput(event)">
+                    <div class="formData" id="empty">Please fill the data</div>
+                    <div class="formData" id="thanks" style="background-color: #5cd55c;">Thanks for your blessings</div>
                     <h1 class="font-esthetic text-center mb-3" style="font-size: 3rem;">Sayings & Prayers</h1>
                     <div class="mb-1" id="balasan"></div>
 
@@ -418,11 +424,11 @@
                     </div>
 
                     <div class="d-flex">
-                        <button class="flex-fill btn btn-primary btn-sm rounded-3 shadow m-1" id="kirim">
+                        <button type="submit" class="flex-fill btn btn-primary btn-sm rounded-3 shadow m-1" id="kirim">
                             Send<i class="fa-solid fa-paper-plane ms-1"></i>
                         </button>
                     </div>
-                </div>
+                </form>
                 <div class="rounded-4 mt-4 mb-2" id="daftar-ucapan"></div>
             </div>
         </section>
@@ -432,6 +438,7 @@
             <path fill="#111111" fill-opacity="1" d="M0,224L34.3,234.7C68.6,245,137,267,206,266.7C274.3,267,343,245,411,234.7C480,224,549,224,617,213.3C685.7,203,754,181,823,197.3C891.4,213,960,267,1029,266.7C1097.1,267,1166,213,1234,192C1302.9,171,1371,181,1406,186.7L1440,192L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path>
         </svg>
     </main>
+    <!-- git remote set-url origin https://AshishKumar8271@github.com/user/Keshav-Pooja.git -->
 
     <!-- Footer Undangan -->
     <footer>
@@ -469,7 +476,7 @@
     </div>
 
     <!-- Audio Button -->
-    <button type="button" id="tombol-musik" style="display: none;" class="btn btn-light btn-sm rounded-circle btn-music" onclick="util.music(this)" data-status="false" data-url="./assets/music/sound.mp3"> <!--Wrong url-->
+    <button type="button" id="tombol-musik" style="display: none;" class="btn btn-light btn-sm rounded-circle btn-music" onclick="util.music(this)" data-status="false" data-url="./assets/music/sound.mp3">
         <i class="fa-solid fa-circle-pause spin-button"></i>
     </button>
 

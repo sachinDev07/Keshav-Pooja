@@ -243,3 +243,137 @@ const audio = (() => {
         pause: () => singleton().pause(),
     };
 })();
+
+
+const handleInput = (event) => {
+    event.preventDefault();
+
+    const formNama = document.getElementById('form-nama');
+    const formPesan = document.getElementById('form-pesan');
+
+    if(formNama.value === "" | formPesan.value == "") {
+        const EmptyFiled = document.getElementById('empty');
+        EmptyFiled.classList.add("show");
+        setTimeout(() => {
+            EmptyFiled.classList.remove("show");
+        }, 3000);
+    }
+    else {
+        const ThanksField = document.getElementById('thanks');
+        ThanksField.classList.add("show");
+        setTimeout(() => {
+            ThanksField.classList.remove("show");
+        }, 3000);
+    }
+}
+
+
+function submitForm(event) {
+    console.log("coming inside form");
+    event.preventDefault();
+  
+    var form = document.getElementById("messageForm");
+    var formData = new FormData(form);
+  
+    var data = {};
+    formData.forEach(function (value, key) {
+      data[key] = value;
+    });
+  
+    console.log("data", data);
+  
+    fetch("http://localhost:7000/url", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        fetchData();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
+  
+  function submitForm(event) {
+    console.log("coming inside form");
+    event.preventDefault();
+  
+    var form = document.getElementById("messageForm");
+    var formData = new FormData(form);
+  
+    var data = {};
+    formData.forEach(function (value, key) {
+      data[key] = value;
+    });
+  
+    console.log("data", data);
+  
+    fetch("http://localhost:7000/url", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        fetchData();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
+  
+  const fetchData = async () => {
+    try {
+      const response = await fetch("http://localhost:7000/url/getData", {
+        method: "GET",
+        credentials: "same-origin",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      console.log("data: ", data);
+      appendComments(data.user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+  function appendComments(comments) {
+    let container = document.getElementById("container");
+  
+    container.innerHTML = "";
+  
+    comments.forEach((comment) => {
+      let card = document.createElement("div");
+      card.classList.add(
+        "card-body",
+        "border",
+        "rounded-4",
+        "shadow",
+        "p-3",
+        "m-3",
+      );
+  
+      let usernameElement = document.createElement("span");
+      usernameElement.textContent = comment.username;
+  
+      let messageElement = document.createElement("p");
+      messageElement.textContent = comment.message;
+  
+      card.appendChild(usernameElement);
+      card.appendChild(messageElement);
+  
+      container.appendChild(card);
+    });
+  }
+  
+  fetchData();

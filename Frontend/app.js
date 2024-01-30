@@ -251,7 +251,7 @@ const handleInput = (event) => {
     const formNama = document.getElementById('form-nama');
     const formPesan = document.getElementById('form-pesan');
 
-    if(formNama.value === "" | formPesan.value == "") {
+    if(formNama.value == "" || formPesan.value == "") {
         const EmptyFiled = document.getElementById('empty');
         EmptyFiled.classList.add("show");
         setTimeout(() => {
@@ -265,11 +265,10 @@ const handleInput = (event) => {
             ThanksField.classList.remove("show");
         }, 3000);
     }
+
 }
 
-
 function submitForm(event) {
-    console.log("coming inside form");
     event.preventDefault();
   
     var form = document.getElementById("messageForm");
@@ -280,7 +279,6 @@ function submitForm(event) {
       data[key] = value;
     });
   
-    console.log("data", data);
   
     fetch("http://localhost:7000/url", {
       method: "POST",
@@ -291,7 +289,6 @@ function submitForm(event) {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Success:", data);
         fetchData();
       })
       .catch((error) => {
@@ -300,7 +297,6 @@ function submitForm(event) {
   }
   
   function submitForm(event) {
-    console.log("coming inside form");
     event.preventDefault();
   
     var form = document.getElementById("messageForm");
@@ -311,7 +307,6 @@ function submitForm(event) {
       data[key] = value;
     });
   
-    console.log("data", data);
   
     fetch("http://localhost:7000/url", {
       method: "POST",
@@ -322,7 +317,6 @@ function submitForm(event) {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Success:", data);
         fetchData();
       })
       .catch((error) => {
@@ -340,7 +334,6 @@ function submitForm(event) {
         },
       });
       const data = await response.json();
-      console.log("data: ", data);
       appendComments(data.user);
     } catch (error) {
       console.log(error);

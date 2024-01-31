@@ -265,6 +265,8 @@ const handleInput = (event) => {
             ThanksField.classList.remove("show");
         }, 3000);
     }
+    formNama.value = "";
+    formPesan.value = "";
 
 }
 
@@ -353,16 +355,31 @@ function submitForm(event) {
         "rounded-4",
         "shadow",
         "p-3",
-        "m-3",
+        "my-3",
+        "bg-light",
+        "text-dark",
+        "w-100",
       );
   
       let usernameElement = document.createElement("span");
+      usernameElement.classList.add(
+        "fw-bold"
+      )
+
+
       usernameElement.textContent = comment.username;
+
+      let lineBreakElement = document.createElement("hr");
+      lineBreakElement.classList.add(
+        "text-dark",
+        "my-1",
+      )
   
       let messageElement = document.createElement("p");
       messageElement.textContent = comment.message;
   
       card.appendChild(usernameElement);
+      card.appendChild(lineBreakElement);
       card.appendChild(messageElement);
   
       container.appendChild(card);

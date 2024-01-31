@@ -156,6 +156,14 @@ body::-webkit-scrollbar {
     display: block;
 }
 
+hr{
+    margin: 1rem 0;
+    color: inherit;
+    border: 0;
+    border-top: var(--bs-border-width) solid;
+    opacity: .25;
+}
+
 @media screen and (max-width: 400px) {
     .eventTime {
         font-size: 12px !important;

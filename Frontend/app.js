@@ -149,6 +149,7 @@ const util = (() => {
     };
 
     const buka = async (button) => {
+        fetchData();
         button.disabled = true;
         document.querySelector('body').style.overflowY = 'scroll';
         AOS.init();
@@ -336,6 +337,7 @@ function submitForm(event) {
         },
       });
       const data = await response.json();
+      console.log(data);
       appendComments(data.user);
     } catch (error) {
       console.log(error);
@@ -385,5 +387,3 @@ function submitForm(event) {
       container.appendChild(card);
     });
   }
-  
-  fetchData();

@@ -283,7 +283,7 @@ function submitForm(event) {
     });
   
   
-    fetch("https://keshav-pooja.cyclic.app/url", {
+    fetch("https://fine-pear-worm-gear.cyclic.app/url/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -311,7 +311,7 @@ function submitForm(event) {
     });
   
   
-    fetch("https://keshav-pooja.cyclic.app/url", {
+    fetch("https://fine-pear-worm-gear.cyclic.app/url/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -329,7 +329,7 @@ function submitForm(event) {
   
   const fetchData = async () => {
     try {
-      const response = await fetch("https://keshav-pooja.cyclic.app/url/getData", {
+      const response = await fetch("https://fine-pear-worm-gear.cyclic.app/url/getData", {
         method: "GET",
         credentials: "same-origin",
         headers: {

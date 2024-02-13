@@ -1,3 +1,4 @@
+
 const util = (() => {
 
     const opacity = (nama) => {
@@ -96,22 +97,6 @@ const util = (() => {
         (new bootstrap.Modal('#modal-image')).show();
     };
 
-    const tamu = () => {
-        let name = (new URLSearchParams(window.location.search)).get('to');
-
-        if (!name) {
-            document.getElementById('nama-tamu').remove();
-            return;
-        }
-
-        let div = document.createElement('div');
-        div.classList.add('m-2');
-        div.innerHTML = `<p class="mt-0 mb-1 mx-0 p-0 text-light">Kepada Yth Bapak/Ibu/Saudara/i</p><h2 class="text-light">${escapeHtml(name)}</h2>`;
-
-        document.getElementById('form-nama').value = name;
-        document.getElementById('nama-tamu').appendChild(div);
-    };
-
     const animation = async () => {
         const duration = 10 * 1000;
         const animationEnd = Date.now() + duration;
@@ -167,7 +152,6 @@ const util = (() => {
     };
 
     const show = () => {
-        tamu();
         opacity('loading');
         window.scrollTo(0, 0);
     };
